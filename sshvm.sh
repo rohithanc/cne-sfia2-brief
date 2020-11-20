@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('ssh into pytestVM') {
       steps {
-        sh "ssh -tt -i /home/jenkins/.ssh/id_rsa ubuntu@52.215.78.226 'whoami && exit'"
+        sh "./script.sh"
       }
     }
     stage('Communicate'){
@@ -13,4 +13,3 @@ pipeline {
     }
   }
 }
-
