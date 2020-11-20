@@ -1,0 +1,19 @@
+---
+- hosts: jenkins
+  become: true
+  tasks:
+  - name: Install NGINX
+    apt: 
+      name: nginx
+      state: latest
+      update_cache: true
+  - name: Start NGINX service
+    service:
+      name: nginx
+      state: started
+  - name: Install Jenkins
+    script: /home/ubuntu/install-jenkins.sh
+  - name: Install Docker and Docker-compose on Jenkins Machine
+    script: /home/ubuntu/docker-install.sh
+  - name: Add Jenkins user into Docker group and restart Jenkins
+    script: /home/ubuntu/extra-stuff.sh
