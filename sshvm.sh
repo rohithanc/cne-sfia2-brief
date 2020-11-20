@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('ssh into pytestVM') {
       steps {
-        sh "./script.sh"
+        sh "./new-script.sh"
       }
     }
     stage('Communicate'){
