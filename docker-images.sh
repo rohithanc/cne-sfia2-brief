@@ -6,3 +6,4 @@ cd backend
 sudo docker build -t rohithan9615/backend
 sudo docker push rohithan9615/frontend
 sudo docker push rohithan9615/backend
+logout
