@@ -12,7 +12,7 @@ pipeline {
         sh 'echo Hello World- I am communicating via Jenkins'
       }
     }
-    stage('Build images and push to Dockerhub')
+    stage('Build images and push to Dockerhub'){
       steps {
         sh "chmod +x docker-images.sh"
         sh "./docker-images.sh"	
