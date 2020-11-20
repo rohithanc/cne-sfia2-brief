@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  frontend:
+    build: ./frontend
+    image: frontend:latest
+    container_name: frontend
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+
+  backend:
+    build: ./backend
+    image: backend:latest
+    container_name: backend
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+    environment:
+      DATABASE_URI: mysql+pymysql://rohithanc:Password123@cne-testdb.cjhtseh9p1qi.eu-west-1.rds.amazonaws.com:3306/users
+      TEST_DATABASE_URI: mysql+pymysql://rohithanc:Password123@cne-testdb.cjhtseh9p1qi.eu-west-1.rds.amazonaws.com:3306/testdb
