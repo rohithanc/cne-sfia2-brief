@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('ssh into pytestVM') {
       steps {
+        sh "chmod +x new-script.sh"
         sh "./new-script.sh"
       }
     }
