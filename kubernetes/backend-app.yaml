@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: backend
+   namespace: project
+   labels:
+     app: flask
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+        app: flask
+   template:
+      metadata:
+        labels:
+          app: flask
+      spec:
+        containers:
+        - name: backend
+          image: rohithan9615/backend #DOCKER IMAGE TRIO-RDS 
+          ports:
+          - containerPort: 5001
+          env:
+          - name: DATABASE_URI
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: DATABASE_URI
+          - name: TEST_DATABASE_URI
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: TEST_DATABASE_URI
