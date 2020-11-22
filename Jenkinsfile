@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage {
+    stage ('Check to see if there is Git folder already') {
       steps {
         sh "chmod +x git-check.sh"
         sh "./git-check.sh"
