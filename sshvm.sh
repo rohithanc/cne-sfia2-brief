@@ -7,7 +7,6 @@ pipeline {
 	sh "./git-check.sh"
       }
     }  
-  stages {
     stage('ssh into pytestVM') {
       steps {
         sh "chmod +x new-script.sh"
