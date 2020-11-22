@@ -1,4 +1,4 @@
-cd cne-sfia2-briefs/
+#cd cne-sfia2-briefs/
 kubectl create ns project
 kubectl apply -f secret.yaml
 kubectl apply -f backend-app.yaml && kubectl apply -f backend-service.yaml
