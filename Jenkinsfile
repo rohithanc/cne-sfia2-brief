@@ -28,8 +28,7 @@ pipeline {
       steps {
         sh "chmod +x install-kubernetes.sh"
         sh "./install-kubernetes.sh"
-        sh "chmod +x kubernetes/kubernetes.sh"
-        sh "./kubernetes/kubernetes.sh"
+        sh "./kubernetes-jenkins.sh"
       }
     }
 }
