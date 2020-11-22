@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Check to see if there is Git folder already') {
       steps {
-        sh "chmod +x ./git-check.sh"
+        sh "chmod +x ./scripts/git-check.sh"
         sh "./scripts/git-check.sh"
       }
     }
