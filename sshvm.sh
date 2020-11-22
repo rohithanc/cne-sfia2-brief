@@ -3,10 +3,8 @@ pipeline {
   stages {
     stage {
       steps {
-        if (! -d cne-sfia2-brief )
-	then
-	    git clone https://github.com/rohithanc/cne-sfia2-brief
-	fi
+        sh "chmod +x git-check.sh"
+	sh "./git-check.sh"
       }
     }  
   stages {
