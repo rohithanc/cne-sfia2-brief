@@ -1,5 +1,5 @@
 #!/bin/bash
-cd cne-sfia2-briefs/kubernetes/
+cd cne-sfia2-brief/kubernetes/
 kubectl create ns project
 kubectl apply -f secret.yaml
 kubectl apply -f backend-app.yaml && kubectl apply -f backend-service.yaml
