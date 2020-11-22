@@ -3,14 +3,14 @@ pipeline {
   stages {
     stage ('Check to see if there is Git folder already') {
       steps {
-        sh "chmod +x git-check.sh"
-        sh "./git-check.sh"
+        sh "chmod +x ./git-check.sh"
+        sh "./scripts/git-check.sh"
       }
     }
     stage('ssh into pytestVM') {
       steps {
-        sh "chmod +x new-script.sh"
-        sh "./new-script.sh"
+        sh "chmod +x ./scripts/new-script.sh"
+        sh "./scripts/new-script.sh"
       }
     }
     stage('Communicate'){
@@ -20,8 +20,8 @@ pipeline {
     }
     stage('Build images and push to Dockerhub'){
       steps {
-        sh "chmod +x docker-images.sh"
-        sh "./docker-images.sh"
+        sh "chmod +x ./scripts/docker-images.sh"
+        sh "./scripts/docker-images.sh"
       }
     }
     stage('Kubernetes'){
