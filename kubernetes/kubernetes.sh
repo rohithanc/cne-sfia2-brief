@@ -1,14 +1,14 @@
 #!/bin/bash
 #cd cne-sfia2-briefs/
-echo 0
+aws configure
+echo AKIAZWEPZMSUILR35PVS
+echo qUtfVHQbPrOZMFcZ+oknRNIWS5Wtpb+2jwtT30wu
+echo eu-west-1
+echo json
+aws eks --region eu-west-1 update-kubeconfig --name 22-11-cluster
 kubectl create ns project
-echo 1
 kubectl apply -f secret.yaml
-echo 2
 kubectl apply -f backend-app.yaml && kubectl apply -f backend-service.yaml
-echo 3
 kubectl apply -f frontend-app.yaml && kubectl apply -f frontend-service.yaml
-echo 4
 kubectl get pods -n project
-echo 5
 kubectl get svc -n project
