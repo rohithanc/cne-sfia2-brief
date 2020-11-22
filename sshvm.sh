@@ -17,6 +17,12 @@ pipeline {
         sh "chmod +x docker-images.sh"
         sh "./docker-images.sh"	
       }
-  }
+    }
+    stage('Kubernetes'){
+      steps {
+        sh "chmod +x kubernetes.sh"
+	sh "./kubernetes.sh"
+      }
+    }
 }
 }
