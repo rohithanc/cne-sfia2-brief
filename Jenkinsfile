@@ -26,9 +26,7 @@ pipeline {
     }
     stage('Kubernetes'){
       steps {
-        sh "chmod +x install-kubernetes.sh"
-        sh "./install-kubernetes.sh"
-        sh "chmod  +x ./kubernetes/kubernetes.sh"
+        sh "chmod  a+x ./kubernetes/kubernetes.sh"
         sh "./kubernetes/kubernetes.sh"
       }
     }
