@@ -1,6 +1,15 @@
 pipeline {
   agent any
   stages {
+    stage {
+      steps {
+        if [! -d sfia ]
+	then
+	    git clone https://github.com/rohithanc/cne-sfia2-brief
+	fi
+      }
+    }  
+  stages {
     stage('ssh into pytestVM') {
       steps {
         sh "chmod +x new-script.sh"
