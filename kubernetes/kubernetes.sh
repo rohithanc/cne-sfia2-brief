@@ -1,3 +1,4 @@
+#!/bin/bash
 #cd cne-sfia2-briefs/
 echo 0
 kubectl create ns project
