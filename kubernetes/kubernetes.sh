@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh -i /home/ubuntu/.ssh/id_rsa ubuntu@3.250.123.52 << EOF
+ssh -tt -i /home/ubuntu/.ssh/id_rsa ubuntu@3.250.123.52 << EOF
 cd cne-sfia2-brief/kubernetes/
 kubectl create ns project
 kubectl apply -f secret.yaml
