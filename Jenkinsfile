@@ -1,9 +1,16 @@
 pipeline {
   agent any
   stages {
+    stage {
+      steps {
+        sh "chmod +x git-check.sh"
+        sh "./git-check.sh"
+      }
+    }
     stage('ssh into pytestVM') {
       steps {
-        sh "ssh -tt -i /home/jenkins/.ssh/id_rsa ubuntu@52.215.78.226 'whoami && exit'"
+        sh "chmod +x new-script.sh"
+        sh "./new-script.sh"
       }
     }
     stage('Communicate'){
@@ -11,5 +18,17 @@ pipeline {
         sh 'echo Hello World- I am communicating via Jenkins'
       }
     }
-  }
+    stage('Build images and push to Dockerhub'){
+      steps {
+        sh "chmod +x docker-images.sh"
+        sh "./docker-images.sh"
+      }
+    }
+    stage('Kubernetes'){
+      steps {
+        sh "chmod +x kubernetes.sh"
+        sh "./kubernetes.sh"
+      }
+    }
+}
 }
