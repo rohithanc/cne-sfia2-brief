@@ -13,11 +13,6 @@ pipeline {
         sh "./scripts/new-script.sh"
       }
     }
-    stage('Communicate'){
-      steps {
-        sh 'echo Hello World- I am communicating via Jenkins'
-      }
-    }
     stage('Build images and push to Dockerhub'){
       steps {
         sh "chmod +x ./scripts/docker-images.sh"
