@@ -130,6 +130,15 @@ A [Jira board](https://rohithan-carthigeya.atlassian.net/secure/RapidBoard.jspa?
     - The same IAM user makes the Node Group, with AmazonEKSWorkerNodePolicy, AmazonEC2ContainerRegistryReadOnly and AmazonEKS_CNI_Policy attached
     - AWS CLI and kubectl were installed
 
+## Manual Development
+Processes and Commands that needed to be performed manually
+  - running Terraform and Ansible
+  - ssh-keygen to create public keys for the VMs and insert them into other VMs in order to allow access
+  - providing the Jenkins user with no password needed access by running ***sudo visudo*** and entering ***Jenkins ALL(ALL:ALL) NO PASSWD:ALL)
+  - adding the environmental variables to the testing
+  - logging into Jenkins
+  - getting the External IP from ***kubectl get svc*** command and accessing it via the browser
+
 ## Testing
 The tests were run with the Jenkins pipeline and took place in a PyTest VM specifically made in Terraform for conducting tests.
 
@@ -145,5 +154,16 @@ The tests were run with the Jenkins pipeline and took place in a PyTest VM speci
 ![This picture shows what the app looks like in the browser](https://imgur.com/a/dwFeFmd)
 
 ## Issues Encountered
-
+- There were often issues with ssh-ing into VMs.
+- Whilst coding Kubernetes, curling the external IP would often reveal internal service errors
+  - this was due to the environmental variables not being called correctly
+- Configuring the Kubernetes commands in the pipeline was difficult as host key verification would fail or there were not enough permissions allowed to the User handling the AWS EKS cluster and AWS CLI
+  - the solution used to solve this was SSH-ing into the original VM in order to run the Kubernetes cluster.
+  
 ## Improvements and Ideas for Future Deployment Projects
+- more focus on security
+  - using more secrets and environmental variables
+  - less hard-coding
+- using Terraform to create a new environment for Kubernetes
+- rewriting the Ansible playbook to incorporate roles so the playbook could act on more VMs
+  - e.g. downloading Docker and Docker-compose on the testing VM beforehand instead of putting the download command in a script for the CI pipeline to run
