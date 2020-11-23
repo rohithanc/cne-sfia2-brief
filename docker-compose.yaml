@@ -2,7 +2,7 @@ version: "3.7"
 services:
   frontend:
     build: ./frontend
-    image:  rohithan9615/frontend:latest
+    image: frontend:latest
     container_name: frontend
     ports:
     - target: 5000
@@ -11,7 +11,7 @@ services:
 
   backend:
     build: ./backend
-    image: rohithan9615/backend:latest
+    image: backend:latest
     container_name: backend
     ports:
     - target: 5001
