@@ -104,3 +104,27 @@ Completing the stretch goals should yield an infrastructure diagram similar to t
 
 **Good luck!**
 # cne-sfia2-brief
+
+---------------------
+## Planning
+A [Jira board](https://rohithan-carthigeya.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=CNES&selectedIssue=CNES-2) was used in order to plan the tasks for the projects. The tasks were divided into the five constituent parts of the project- Terraform, Ansible, Jenkins, testing and Kubernetes.
+
+## Risk Assessment
+
+## Testing
+The tests were run with the Jenkins pipeline and took place in a PyTest VM specifically made in Terraform for conducting tests.
+
+![Frontend Test Results](https://imgur.com/a/zGVqhRT)
+
+![Backend Test Results](
+
+## Results
+![This is how the Jenkins Pipeline is running](https://imgur.com/a/QJIuQuD)
+
+![This picture shows how to obtain the external IP address to access the app and what happens when you curl the address](https://imgur.com/a/6de2JHR)
+
+![This picture shows what the app looks like in the browser](https://imgur.com/a/dwFeFmd)
+
+## Issues Encountered
+
+## Improvements and Ideas for Future Deployment Projects
