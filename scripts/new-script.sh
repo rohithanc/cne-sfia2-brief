@@ -2,6 +2,11 @@ ssh -tt -i /home/jenkins/.ssh/id_rsa ubuntu@52.215.78.226 << EOF
 sudo rm -r cne-sfia2-brief
 git clone http://github.com/rohithanc/cne-sfia2-brief
 cd cne-sfia2-brief
+
+cd scripts # new command to download docker-compose in the VM
+. ./download-docker-compose.sh
+cd ..
+
 cd database
 mysql -h cne-testdb.cjhtseh9p1qi.eu-west-1.rds.amazonaws.com -P 3306 -u rohithanc -pPassword123 < Create.sql
 mysql -h cne-productiondb.cjhtseh9p1qi.eu-west-1.rds.amazonaws.com -P 3306 -u rohithanc -pPassword123 < Create.sql
