@@ -116,7 +116,7 @@ The tests were run with the Jenkins pipeline and took place in a PyTest VM speci
 
 ![Frontend Test Results](https://imgur.com/a/zGVqhRT)
 
-![Backend Test Results](
+![Backend Test Results](https://imgur.com/a/JHxJXSi)
 
 ## Results
 ![This is how the Jenkins Pipeline is running](https://imgur.com/a/QJIuQuD)
