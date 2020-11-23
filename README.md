@@ -110,6 +110,25 @@ Completing the stretch goals should yield an infrastructure diagram similar to t
 A [Jira board](https://rohithan-carthigeya.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=CNES&selectedIssue=CNES-2) was used in order to plan the tasks for the projects. The tasks were divided into the five constituent parts of the project- Terraform, Ansible, Jenkins, testing and Kubernetes.
 
 ## Risk Assessment
+[Risk Assessment for the Project](https://docs.google.com/spreadsheets/d/1krJfi5wQVW0g3U0QM3nc_3Hxt0jpRJ4rrRjLNynY_XM/edit?usp=sharing)
+
+## Process
+- Terraform was used to spin up VMs for Jenkins and PyTest and Databases for Testing and Kubernetes Production.
+- An Ansible playbook, with an inventory to store the hosts of the Jenkins VM, was created. Additional files with commands for installation are available for the playbook to call in order to download Jenkins/Docker/Docker-Compose in the Jenkins VM.
+- A Continuous Integration Pipeline was configured in Jenkins
+  - a webhook was attached to this github to ensure that whenever a change was committed to Github, the pipeline would run the Jenkinsfile automatically
+  - a JenkinsFile was created to perform the processes
+    - Clone the latest code
+    - SSH into the VM and run the PyTests
+    - upload the images to Docker
+    - run the Kubernetes cluster for production
+    The JenkinsFile was finished last in order to incorporate the Kubernetes Cluster.
+- Kubernetes was used to create containerized applications and scale and deploy them
+  - the Kubernetes was originally configured in GCP (Google Cloud Platform)
+  - an AWS EKS cluster was created, with node groups.
+    - In order to create a cluster, an EKS IAM Role with AmazonEKSClusterPolicy attached and an IAM User with console and programmatic access and permissions were needed.
+    - The same IAM user makes the Node Group, with AmazonEKSWorkerNodePolicy, AmazonEC2ContainerRegistryReadOnly and AmazonEKS_CNI_Policy attached
+    - AWS CLI and kubectl were installed
 
 ## Testing
 The tests were run with the Jenkins pipeline and took place in a PyTest VM specifically made in Terraform for conducting tests.
